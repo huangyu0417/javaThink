@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Lambda {
     public static void main(String[] args){
-        List<String> list = Arrays.asList("world!","hello");
+        List<String> list = Arrays .asList("world!","hello");
         list.sort((a,b)->a.compareTo(b));
         list.forEach(e->System.out.println(e));
     }
