@@ -1,4 +1,4 @@
-package com.hy.think;
+package com.hy.think.java8;
 
 import java.util.Arrays;
 import java.util.List;
