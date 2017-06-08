@@ -19,7 +19,7 @@ public class StreamAPI {
 //        list.stream().filter(s -> s.length() < 3)
 //                .forEach(s -> System.out.println(s));
         List<Double> list = new ArrayList<Double>();
-        for(int i=0;i<10000000;i++){
+        for(int i=0;i<1000000;i++){
             double d = Math.random() * 1000;
             list.add(d);
         }
