@@ -1,4 +1,4 @@
-package com.hy.think.generics;
+package com.hy.think.thinking.generics;
 
 /**
  * desc: 泛型链表栈

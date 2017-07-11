@@ -1,4 +1,4 @@
-package com.hy.think.generics.genericsInterface;
+package com.hy.think.thinking.generics.genericsInterface;
 
 /**
  * desc:
