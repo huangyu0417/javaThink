@@ -10,7 +10,7 @@ public class LinkedStack<T> {
     private Node<T> top = new Node<T>();
 
     public void push(T data) {
-        top = new Node<>(top,data);
+        top = new Node<>(top,data);//存入栈的最顶端
     }
 
     public T pop(){
