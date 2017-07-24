@@ -24,7 +24,7 @@ public class BubbleSort {
      *@created 2017/7/20 8:39
      */
     public static int[] bubbleSort(int[] arg) {
-        int len = 0;
+        int len;
         if (arg != null && (len = arg.length) > 1) {
             for (int idx = 0; idx < len - 1; idx++) {
                 for (int j = len - 1; j > idx; --j) {
@@ -50,7 +50,7 @@ public class BubbleSort {
      *@created 2017/7/20 8:40
      */
     public static int[] optimizeBubbleSort(int[] arg) {
-        int len = 0;
+        int len;
         boolean exchange = true;
         if (arg != null && (len = arg.length) > 1) {
             for (int idx = 0; idx < len - 1 && exchange; idx++) {

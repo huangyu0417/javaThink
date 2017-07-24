@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
  * @Created on 2017/7/24 13:56
  */
 public class WaitNotifyMode {
-    private static final int MAX_SIZE = 20;
+    private static final int MAX_SIZE = 100;
     private final Object monitor = new Object();
     private LinkedList<Product> queue = new LinkedList<Product>();
 
@@ -30,7 +30,7 @@ public class WaitNotifyMode {
     class Producer implements Runnable {
         @Override
         public void run() {
-            for (; ; ) {
+            while (true) {
                 synchronized (monitor) {
                     if (queue.size() >= MAX_SIZE) {
                         try {
@@ -49,6 +49,9 @@ public class WaitNotifyMode {
                         e.printStackTrace();
                     }
                     monitor.notifyAll();
+                    if (queue.size() > 10) {
+                        Thread.yield();
+                    }
                 }
             }
         }
@@ -76,6 +79,9 @@ public class WaitNotifyMode {
                         e.printStackTrace();
                     }
                     monitor.notifyAll();
+                    if (queue.size() < 5) {
+                        Thread.yield();
+                    }
                 }
             }
         }
@@ -85,7 +91,7 @@ public class WaitNotifyMode {
         ExecutorService threadPool = Executors.newFixedThreadPool(2);
         WaitNotifyMode procedure = new WaitNotifyMode();
         threadPool.execute(procedure.getConsumer());
-        threadPool.execute(procedure.getProducer());
+        threadPool.execute(procedure.new Producer());
         threadPool.shutdown();
     }
 }
