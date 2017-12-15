@@ -8,6 +8,10 @@ import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * desc:处理服务端
  *
@@ -29,6 +33,16 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
             ReferenceCountUtil.release(buf);
         }
 
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        final ByteBuf time = ctx.alloc().buffer(4);
+        SimpleDateFormat format = (SimpleDateFormat) DateFormat.getInstance();
+        format.applyPattern("HHmmss");
+        int t = Integer.valueOf(format.format(new Date()));
+        time.writeInt(t);
+        
     }
 
     @Override
