@@ -18,14 +18,14 @@ import org.slf4j.LoggerFactory;
  * @version 1.0
  * @Created on 2017/11/30 18:48
  */
-public class DiscardServer {
-    private static final Logger logger = LoggerFactory.getLogger(DiscardServer.class);
+public class EchoServer {
+    private static final Logger logger = LoggerFactory.getLogger(EchoServer.class);
     /**
      * 端口
      */
     private int port;
 
-    public DiscardServer(int port) {
+    public EchoServer(int port) {
         this.port = port;
     }
 
@@ -51,7 +51,7 @@ public class DiscardServer {
                             if (logger.isInfoEnabled()) {
                                 logger.info("add Hander");
                             }
-                            ch.pipeline().addLast(new DiscardServerHandler());
+                            ch.pipeline().addLast(new EchoServerHandler());
                         }
                     }).option(ChannelOption.SO_BACKLOG,128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
@@ -69,6 +69,6 @@ public class DiscardServer {
     }
 
     public static void main(String[] args) throws Exception {
-        new DiscardServer(8800).run();
+        new EchoServer(8800).run();
     }
 }
