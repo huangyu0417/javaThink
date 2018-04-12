@@ -11,8 +11,10 @@ import io.vertx.core.AbstractVerticle;
  */
 public class FirstVerticle extends AbstractVerticle{
     @Override
-    public void start() throws Exception {
+    public void start() {
         vertx.createHttpServer().requestHandler(req -> {
+            System.out.println(req.uri());
+            System.out.println(req.absoluteURI());
             req.response()
                     .putHeader("content-type","text/html")
                     .end("<h>Hello world!</h>");

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hy.think.orm.mybatis.LoginerDao">
+
+    <insert id="insertLoginer" parameterType="loginer">
+        INSERT INTO LOGINER(id,name,cryptography)
+        VALUES (#{id},#{name},#{cryptography})
+    </insert>
+
+    <delete id="deleteLoginer" parameterType="_int">
+        DELETE FROM LOGINER WHERE id = #{id}
+    </delete>
+
+    <select id="selectOne" parameterType="_int" resultType="loginer">
+        SELECT id, name, cryptography FROM LOGINER WHERE id = #{id}
+    </select>
+
+</mapper>
