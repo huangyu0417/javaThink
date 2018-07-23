@@ -10,7 +10,7 @@
     <name>java8 and Think Of Java</name>
     <properties>
         <spring-version>5.0.7.RELEASE</spring-version>
-        <vertx-version>3.3.3</vertx-version>
+        <vertx-version>3.5.0</vertx-version>
         <kotlin.version>1.2.31</kotlin.version>
     </properties>
     <dependencies>
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.6.Final</version>
+            <version>4.1.22.Final</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.vertx/vertx-core -->
