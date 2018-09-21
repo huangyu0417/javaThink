@@ -1,4 +1,4 @@
-package com.hy.think.distributed;
+package com.hy.think.distributed.zookeeper;
 
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
