@@ -25,12 +25,12 @@ public class EchoClientHander extends SimpleChannelInboundHandler<ByteBuf> {
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) {
         ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!",CharsetUtil.UTF_8));
     }
 
     @Override
-    public void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
+    public void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
         if (logger.isInfoEnabled()) {
             logger.info("客户端接收消息 => {}",msg.toString(CharsetUtil.UTF_8));
         }
